@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
 export const App = () => {
-  const [count, setCount] = useState(0)
+	const [count, setCount] = useState(0);
 
-  return (
-    <div>
-      Home
-    </div>
-  )
-}
+	return (
+		<div>
+			Home
+		</div>
+	);
+};
