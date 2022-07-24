@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { Home } from './pages';
+import './shared/components/Form/TranslateErros';
 
 export const App = () => {
-	const [count, setCount] = useState(0);
 
 	return (
-		<div>
-			Home
-		</div>
+		<>
+			<Home />
+		</>
 	);
 };
