@@ -1,37 +1,9 @@
-import { Box, Button, Paper, Typography } from '@mui/material';
-import { FormHandles } from '@unform/core';
-import { Form } from '@unform/web';
-import { useRef, useState } from 'react';
-import * as yup from 'yup';
-import { UnformInputsText } from '../../shared/components';
-
-interface IInputTextProps {
-	firstName: string;
-}
-
-const validationYupSchema: yup.SchemaOf<IInputTextProps> = yup.object().shape({
-	firstName: yup.string().required().min(3),
-});
+import { Box } from '@mui/material';
+import { Header, InputTextLastName, InputTextName } from '../../shared/components';
+import { ButtonSubmit } from '../../shared/components/ButtonSubmit/ButtonSubmit';
+import '../../shared/components/Form-Inputs/TranslateErrors.ts';
 
 export const Home = () => {
-	const unformRef = useRef<FormHandles>(null);
-
-	const handleSubmitForm = (data: IInputTextProps) => {
-		validationYupSchema.validate(data, { abortEarly: false })
-			.then((validateData) => {
-				if (validateData) {
-					console.log(validateData);
-				}
-			})
-			.catch((errors: yup.ValidationError) => {
-				const validationErrors: { [key: string]: string } = {};
-				errors.inner.map(error => {
-					if (!error.path) return;
-					validationErrors[error.path] = error.message;
-				});
-				unformRef.current?.setErrors(validationErrors);
-			});
-	};
 
 
 	return (
@@ -43,28 +15,10 @@ export const Home = () => {
 			flexDirection='column'
 			padding={2}
 		>
-			<Box
-				marginBottom={4}
-				component={Paper}
-				width='100%'
-				height='50px'
-				display='flex'
-				alignItems='center'
-				justifyContent='center'
-				elevation={5}
-			>
-				<Typography
-					variant='caption'
-					fontSize='16px'
-					textAlign='center'
-				>
-					Inputs forms validation
-				</Typography>
-			</Box>
-			<Form ref={unformRef} onSubmit={handleSubmitForm}>
-				<UnformInputsText name='firstName' label='First name' />
-			</Form>
-			<Button onClick={() => unformRef.current?.submitForm()}>Enviar</Button>
+			<Header />
+			<InputTextName />
+			<InputTextLastName />
+			<ButtonSubmit />
 		</Box>
 	);
 };

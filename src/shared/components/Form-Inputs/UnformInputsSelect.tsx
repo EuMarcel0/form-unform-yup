@@ -6,7 +6,7 @@ type IUnformInputsTextProps = TextFieldProps & {
 	name: string;
 }
 
-export const UnformInputsText = ({ name, ...rest }: IUnformInputsTextProps) => {
+export const UnformInputsSelect = ({ name, ...rest }: IUnformInputsTextProps) => {
 	const { clearError, defaultValue, error, fieldName, registerField } = useField(name);
 	const [value, setValue] = useState(defaultValue || '');
 
@@ -19,7 +19,7 @@ export const UnformInputsText = ({ name, ...rest }: IUnformInputsTextProps) => {
 	}, [registerField, value, fieldName]);
 
 	return (
-		<Box>
+		<Box width={700}>
 			<TextField
 				{...rest}
 
