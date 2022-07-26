@@ -1,6 +1,5 @@
 import { Box } from '@mui/material';
-import { Header, InputTextLastName, InputTextName } from '../../shared/components';
-import { ButtonSubmit } from '../../shared/components/ButtonSubmit/ButtonSubmit';
+import { Header, InputsValidation } from '../../shared/components';
 import '../../shared/components/Form-Inputs/TranslateErrors.ts';
 
 export const Home = () => {
@@ -16,9 +15,7 @@ export const Home = () => {
 			padding={2}
 		>
 			<Header />
-			<InputTextName />
-			<InputTextLastName />
-			<ButtonSubmit />
+			<InputsValidation />
 		</Box>
 	);
 };

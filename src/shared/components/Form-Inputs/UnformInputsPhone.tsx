@@ -1,13 +1,13 @@
 import { useField } from '@unform/core';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, TextField, TextFieldProps } from '@mui/material';
-
+import InputMask, { Props } from 'react-input-mask';
 
 type IUnformInputsTextProps = TextFieldProps & {
 	name: string;
 }
 
-export const UnformInputsText = ({ name, ...rest }: IUnformInputsTextProps) => {
+export const UnformInputsPhone = ({ name, children, ...rest }: IUnformInputsTextProps) => {
 	const { clearError, defaultValue, error, fieldName, registerField } = useField(name);
 	const [value, setValue] = useState(defaultValue || '');
 
@@ -21,17 +21,11 @@ export const UnformInputsText = ({ name, ...rest }: IUnformInputsTextProps) => {
 
 	return (
 		<Box width={700} sx={{ my: '20px' }}>
-			<TextField
-				{...rest}
+			<InputMask mask='(999) 9 9999-9999' onChange={e => setValue(e.target.value)} value={value}>
+				<TextField
 
-				value={value}
-				onKeyDown={(e) => { error && clearError(); rest.onKeyDown?.(e); }}
-				onChange={(e) => { setValue(e.target.value); rest.onChange?.(e); }}
-				helperText={error}
-				error={!!error}
-				defaultValue={defaultValue}
-				size={'small'}
-			/>
+				/>
+			</InputMask>
 		</Box>
 	);
 };
