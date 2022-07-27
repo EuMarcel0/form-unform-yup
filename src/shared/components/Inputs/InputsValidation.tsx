@@ -4,7 +4,6 @@ import { Form } from '@unform/web';
 import { useRef } from 'react';
 import * as yup from 'yup';
 import { UnformInputsText } from '../Form-Inputs/UnformInputsText';
-import InputMask from 'react-input-mask';
 import { UnformInputsPhone } from '../Form-Inputs/UnformInputsPhone';
 
 interface IInputsValidation {
@@ -75,7 +74,7 @@ export const InputsValidation = () => {
 					<UnformInputsText name='city' label='City' fullWidth />
 					<UnformInputsText name='state' label='State' />
 					<UnformInputsText name='country' label='Country' fullWidth />
-					<UnformInputsText name='phone' label='Phone' />
+					<UnformInputsPhone name='phone' label='Phone' />
 				</Form>
 			</Box>
 			<Box width='100%' display='flex' justifyContent='center'>

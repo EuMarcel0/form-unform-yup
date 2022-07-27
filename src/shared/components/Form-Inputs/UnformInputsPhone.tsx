@@ -1,31 +1,38 @@
 import { useField } from '@unform/core';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+
 import { Box, TextField, TextFieldProps } from '@mui/material';
-import InputMask, { Props } from 'react-input-mask';
+import { normalizePhoneNumber } from '../../Utils/Masks';
 
 type IUnformInputsTextProps = TextFieldProps & {
 	name: string;
 }
 
-export const UnformInputsPhone = ({ name, children, ...rest }: IUnformInputsTextProps) => {
+export const UnformInputsPhone = ({ name, ...rest }: IUnformInputsTextProps) => {
 	const { clearError, defaultValue, error, fieldName, registerField } = useField(name);
+
 	const [value, setValue] = useState(defaultValue || '');
 
 	useEffect(() => {
 		registerField({
 			name: fieldName,
-			getValue: () => value,
+			getValue: () => normalizePhoneNumber(value),
 			setValue: (_, newValue) => setValue(newValue),
+			clearValue: () => setValue(''),
 		});
-	}, [registerField, value, fieldName]);
+	}, [registerField, fieldName, value]);
 
 	return (
-		<Box width={700} sx={{ my: '20px' }}>
-			<InputMask mask='(999) 9 9999-9999' onChange={e => setValue(e.target.value)} value={value}>
-				<TextField
-
-				/>
-			</InputMask>
+		<Box width={700} sx={{ my: '20px' }}  >
+			<TextField
+				{...rest}
+				value={normalizePhoneNumber(value)}
+				onChange={e => { setValue(e.target.value); rest.onChange?.(e); }}
+				error={!!error}
+				helperText={error}
+				onKeyDown={e => { error && clearError(); rest.onKeyDown?.(e); }}
+				defaultValue={defaultValue}
+			/>
 		</Box>
 	);
 };

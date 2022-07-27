@@ -31,6 +31,8 @@ export const UnformInputsText = ({ name, ...rest }: IUnformInputsTextProps) => {
 				error={!!error}
 				defaultValue={defaultValue}
 				size={'small'}
+
+
 			/>
 		</Box>
 	);
