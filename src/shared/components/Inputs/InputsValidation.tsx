@@ -25,7 +25,7 @@ const validationYupSchema: yup.SchemaOf<IInputsValidation> = yup.object().shape(
 	city: yup.string().required().min(3),
 	state: yup.string().required().min(2),
 	country: yup.string().required().min(2),
-	phone: yup.string().required(),
+	phone: yup.string().required().max(11),
 });
 
 export const InputsValidation = () => {
