@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 
 /**
  * Mask for normalize phone number - locale pt_br;

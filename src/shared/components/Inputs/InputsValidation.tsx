@@ -75,7 +75,7 @@ export const InputsValidation = () => {
 	};
 
 	return (
-		<Box>
+		<Box paddingY={3}>
 			<Box
 				width='100%'
 				display='flex'

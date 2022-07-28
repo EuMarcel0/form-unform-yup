@@ -1,5 +1,5 @@
 import { Home } from './pages';
-import './shared/components/Form-Inputs/TranslateErrors.ts';
+import './shared/components/Form-Inputs/TranslateErrors';
 
 export const App = () => {
 
