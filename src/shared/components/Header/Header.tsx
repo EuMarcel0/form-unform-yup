@@ -4,7 +4,7 @@ export const Header = () => {
 	return (
 		<Box
 			marginBottom={4}
-			width='100vw'
+			width='100%'
 			height='50px'
 			display='flex'
 			alignItems='center'
