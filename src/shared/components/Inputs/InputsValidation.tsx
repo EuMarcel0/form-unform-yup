@@ -1,10 +1,14 @@
-import { Box, Button, TextField } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { useRef } from 'react';
 import * as yup from 'yup';
 import { UnformInputsText } from '../Form-Inputs/UnformInputsText';
 import { UnformInputsPhone } from '../Form-Inputs/UnformInputsPhone';
+import { UnformInputsCPF } from '../Form-Inputs/UnformInputsCPF';
+import { UnformInputsCNPJ } from '../Form-Inputs/UnformInputsCNPJ';
+import { UnformInputsPhoneFixed } from '../Form-Inputs/UnformInputsPhoneFixed';
+import { UnformInputsBirthDate } from '../Form-Inputs/UnformInputsBirthDate';
 
 interface IInputsValidation {
 	firstName: string;
@@ -15,6 +19,10 @@ interface IInputsValidation {
 	state: string;
 	country: string;
 	phone: string;
+	cpf: string;
+	cnpj: string;
+	fixedPhone: string;
+	birthDate: string;
 }
 
 const validationYupSchema: yup.SchemaOf<IInputsValidation> = yup.object().shape({
@@ -25,7 +33,11 @@ const validationYupSchema: yup.SchemaOf<IInputsValidation> = yup.object().shape(
 	city: yup.string().required().min(3),
 	state: yup.string().required().min(2),
 	country: yup.string().required().min(2),
-	phone: yup.string().required().max(11),
+	phone: yup.string().required(),
+	cpf: yup.string().required(),
+	cnpj: yup.string().required(),
+	fixedPhone: yup.string().required(),
+	birthDate: yup.string().required(),
 });
 
 export const InputsValidation = () => {
@@ -45,6 +57,10 @@ export const InputsValidation = () => {
 						state: '',
 						country: '',
 						phone: '',
+						cpf: '',
+						cnpj: '',
+						fixedPhone: '',
+						birthDate: '',
 					});
 				}
 			})
@@ -57,7 +73,6 @@ export const InputsValidation = () => {
 				unformRef.current?.setErrors(validationErrors);
 			});
 	};
-
 
 	return (
 		<Box>
@@ -74,7 +89,11 @@ export const InputsValidation = () => {
 					<UnformInputsText name='city' label='City' fullWidth />
 					<UnformInputsText name='state' label='State' />
 					<UnformInputsText name='country' label='Country' fullWidth />
-					<UnformInputsPhone name='phone' label='Phone' />
+					<UnformInputsPhone name='phone' label='Phone - pt_br' />
+					<UnformInputsCPF name='cpf' label='CPF - pt_br' />
+					<UnformInputsCNPJ name='cnpj' label='CNPJ - pt_br' />
+					<UnformInputsPhoneFixed name='fixedPhone' label='Fixed Phone - pt_br' />
+					<UnformInputsBirthDate name='birthDate' label='Birth Date - pt_br' />
 				</Form>
 			</Box>
 			<Box width='100%' display='flex' justifyContent='center'>

@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useField } from '@unform/core';
 
 import { Box, TextField, TextFieldProps } from '@mui/material';
-import { normalizePhoneNumber } from '../../Utils/Masks';
+import { normalizeCPF } from '../../Utils/Masks';
 
 type IUnformInputsTextProps = TextFieldProps & {
 	name: string;
 }
 
-export const UnformInputsPhone = ({ name, ...rest }: IUnformInputsTextProps) => {
+export const UnformInputsCPF = ({ name, ...rest }: IUnformInputsTextProps) => {
 	const { clearError, defaultValue, error, fieldName, registerField } = useField(name);
 
 	const [value, setValue] = useState(defaultValue || '');
@@ -26,7 +26,7 @@ export const UnformInputsPhone = ({ name, ...rest }: IUnformInputsTextProps) => 
 		<Box width={700} sx={{ my: '20px' }}  >
 			<TextField
 				{...rest}
-				value={normalizePhoneNumber(value)}
+				value={normalizeCPF(value)}
 				onChange={e => { setValue(e.target.value); rest.onChange?.(e); }}
 				error={!!error}
 				helperText={error}
