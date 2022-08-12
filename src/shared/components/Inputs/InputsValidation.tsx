@@ -9,6 +9,7 @@ import { UnformInputsCPF } from '../Form-Inputs/UnformInputsCPF';
 import { UnformInputsCNPJ } from '../Form-Inputs/UnformInputsCNPJ';
 import { UnformInputsPhoneFixed } from '../Form-Inputs/UnformInputsPhoneFixed';
 import { UnformInputsBirthDate } from '../Form-Inputs/UnformInputsBirthDate';
+import { UnformInputsPostalCode } from '../Form-Inputs/UnformInputsPostalCode';
 
 interface IInputsValidation {
 	firstName: string;
@@ -23,6 +24,7 @@ interface IInputsValidation {
 	cnpj: string;
 	fixedPhone: string;
 	birthDate: string;
+	postalCode: string;
 }
 
 const validationYupSchema: yup.SchemaOf<IInputsValidation> = yup.object().shape({
@@ -38,6 +40,7 @@ const validationYupSchema: yup.SchemaOf<IInputsValidation> = yup.object().shape(
 	cnpj: yup.string().required(),
 	fixedPhone: yup.string().required(),
 	birthDate: yup.string().required(),
+	postalCode: yup.string().required(),
 });
 
 export const InputsValidation = () => {
@@ -61,6 +64,7 @@ export const InputsValidation = () => {
 						cnpj: '',
 						fixedPhone: '',
 						birthDate: '',
+						postalCode: '',
 					});
 				}
 			})
@@ -91,9 +95,10 @@ export const InputsValidation = () => {
 					<UnformInputsText name='country' label='Country' fullWidth />
 					<UnformInputsPhone name='phone' label='Phone - pt_br' />
 					<UnformInputsCPF name='cpf' label='CPF - pt_br' />
+					<UnformInputsBirthDate name='birthDate' label='Birth Date - pt_br' />
+					<UnformInputsPostalCode name='postalCode' label='CEP - pt_br' />
 					<UnformInputsCNPJ name='cnpj' label='CNPJ - pt_br' />
 					<UnformInputsPhoneFixed name='fixedPhone' label='Fixed Phone - pt_br' />
-					<UnformInputsBirthDate name='birthDate' label='Birth Date - pt_br' />
 				</Form>
 			</Box>
 			<Box width='100%' display='flex' justifyContent='center'>

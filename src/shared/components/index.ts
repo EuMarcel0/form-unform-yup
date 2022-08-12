@@ -8,5 +8,6 @@ export * from './Form-Inputs/UnformInputsCPF';
 export * from './Form-Inputs/UnformInputsCNPJ';
 export * from './Form-Inputs/UnformInputsPhoneFixed';
 export * from './Form-Inputs/UnformInputsBirthDate';
+export * from './Form-Inputs/UnformInputsPostalCode';
 
 export * from './Header/Header';
