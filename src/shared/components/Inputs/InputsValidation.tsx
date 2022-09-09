@@ -3,13 +3,14 @@ import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { useRef } from 'react';
 import * as yup from 'yup';
-import { UnformInputsText } from '../Form-Inputs/UnformInputsText';
-import { UnformInputsPhone } from '../Form-Inputs/UnformInputsPhone';
-import { UnformInputsCPF } from '../Form-Inputs/UnformInputsCPF';
-import { UnformInputsCNPJ } from '../Form-Inputs/UnformInputsCNPJ';
+
+import { UnformInputsPostalCode } from '../Form-Inputs/UnformInputsPostalCode';
 import { UnformInputsPhoneFixed } from '../Form-Inputs/UnformInputsPhoneFixed';
 import { UnformInputsBirthDate } from '../Form-Inputs/UnformInputsBirthDate';
-import { UnformInputsPostalCode } from '../Form-Inputs/UnformInputsPostalCode';
+import { UnformInputsPhone } from '../Form-Inputs/UnformInputsPhone';
+import UnformInputsText from '../Form-Inputs/UnformInputsText';
+import { UnformInputsCNPJ } from '../Form-Inputs/UnformInputsCNPJ';
+import { UnformInputsCPF } from '../Form-Inputs/UnformInputsCPF';
 
 interface IInputsValidation {
 	firstName: string;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Box, TextField, TextFieldProps } from '@mui/material';
 import { useField } from '@unform/core';
 
-import { Box, TextField, TextFieldProps } from '@mui/material';
 import { normalizeBirthDate } from '../../Utils/Masks';
 
 type IUnformInputsTextProps = TextFieldProps & {

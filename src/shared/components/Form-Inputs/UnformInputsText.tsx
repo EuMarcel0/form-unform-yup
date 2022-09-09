@@ -1,5 +1,5 @@
+import { useEffect, useState, memo } from 'react';
 import { useField } from '@unform/core';
-import { useEffect, useState } from 'react';
 import { Box, TextField, TextFieldProps } from '@mui/material';
 
 
@@ -7,7 +7,7 @@ type IUnformInputsTextProps = TextFieldProps & {
 	name: string;
 }
 
-export const UnformInputsText = ({ name, ...rest }: IUnformInputsTextProps) => {
+const UnformInputsText = ({ name, ...rest }: IUnformInputsTextProps) => {
 	const { clearError, defaultValue, error, fieldName, registerField } = useField(name);
 	const [value, setValue] = useState(defaultValue || '');
 
@@ -37,3 +37,4 @@ export const UnformInputsText = ({ name, ...rest }: IUnformInputsTextProps) => {
 		</Box>
 	);
 };
+export default memo(UnformInputsText);

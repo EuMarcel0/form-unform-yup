@@ -15,7 +15,7 @@ export const Header = () => {
 				fontSize='16px'
 				textAlign='center'
 			>
-				Inputs forms validation with Unform, Material UI and Regex
+				Inputs forms validation with Unform, Yup, Material UI and Regex
 			</Typography>
 		</Box>
 	);
